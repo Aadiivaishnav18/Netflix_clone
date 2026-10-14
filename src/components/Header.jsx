@@ -1,17 +1,12 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firsebase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constant";
 
-import {
-  Search,
-  Bell,
-  LogOut,
-  ChevronDown,
-} from "lucide-react";
+import { Search, Bell, LogOut, ChevronDown, } from "lucide-react";
 
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -50,7 +45,7 @@ const Header = () => {
                 email: updatedUser.email,
                 displayName: updatedUser.displayName,
                 photoURL: updatedUser.photoURL,
-              })
+              }),
             );
           }
         } catch (error) {
@@ -68,10 +63,7 @@ const Header = () => {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setShowDropdown(false);
       }
     };
@@ -86,7 +78,6 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 z-50 w-full bg-gradient-to-b from-black via-black/80 to-transparent">
       <div className="mx-auto flex h-16 sm:h-20 items-center justify-between px-4 sm:px-8 lg:px-14">
-
         {/* Left: Netflix Logo */}
         <div className="flex items-center gap-6 lg:gap-10">
           <img
@@ -96,7 +87,7 @@ const Header = () => {
             className="w-24 cursor-pointer object-contain sm:w-32 lg:w-36"
           />
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation
           <nav className="hidden items-center gap-5 text-sm text-gray-300 md:flex">
             <button
               onClick={() => navigate("/browse")}
@@ -113,15 +104,11 @@ const Header = () => {
               Movies
             </button>
 
-            <button className="transition hover:text-white">
-              My List
-            </button>
-          </nav>
+          </nav> */}
         </div>
 
         {/* Right: Actions and Profile */}
         <div className="flex items-center gap-4 sm:gap-6">
-
           {/* Search */}
           <button
             aria-label="Search"
@@ -138,6 +125,13 @@ const Header = () => {
             <Bell size={21} />
           </button>
 
+          <Link
+            to="/login"
+           className="px-5 py-2 text-sm font-semibold text-white bg-red-600 rounded-md shadow-md hover:bg-red-700 hover:shadow-lg active:scale-95 transition-all duration-300"
+          >
+            Sign In
+          </Link>
+
           {/* Profile Dropdown */}
           {user && (
             <div className="relative" ref={dropdownRef}>
@@ -151,8 +145,7 @@ const Header = () => {
                   className="h-8 w-8 rounded object-cover sm:h-9 sm:w-9"
                   alt="User profile"
                   src={
-                    user.photoURL ||
-                    "https://placehold.co/100x100?text=User"
+                    user.photoURL || "https://placehold.co/100x100?text=User"
                   }
                 />
 
@@ -181,7 +174,7 @@ const Header = () => {
                     className="flex w-full items-center gap-3 px-4 py-3 text-sm text-gray-200 transition hover:bg-white/10 hover:text-white"
                   >
                     <LogOut size={17} />
-                    Sign out of Netflix
+                    Sign Out
                   </button>
                 </div>
               )}
