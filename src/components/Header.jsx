@@ -1,10 +1,11 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../utils/firsebase";
+import { auth } from "../utils/firebase";
 import { useNavigate,Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constant";
+
 
 import { Search, Bell, LogOut, ChevronDown, } from "lucide-react";
 

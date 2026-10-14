@@ -8,12 +8,13 @@ import {
   updateProfile,
 } from "firebase/auth";
 
-import { auth } from "../utils/firsebase";
+import { auth } from "../utils/firebase";
 import { USER_AVTAR } from "../utils/constant";
 import { validationData } from "../utils/validationData";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { BACK_IMG } from "../utils/constant";
+
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
