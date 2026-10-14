@@ -151,7 +151,7 @@ const Login = () => {
         <div className="relative text-center px-10">
           <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight">
             {isSignInForm ? "Welcome Back to" : "Join"}{" "}
-            <span className="text-red-500">FilmSphere</span>
+            <span className="text-red-500">NETFLIX</span>
           </h1>
 
           <p className="text-gray-300 mt-5 text-lg">
@@ -278,7 +278,6 @@ const Login = () => {
 
           {/* Decorative glow effects */}
           <div className="absolute -bottom-32 -left-32 w-[300px] h-[300px] bg-red-600/10 blur-3xl rounded-full pointer-events-none" />
-
           <div className="absolute -bottom-20 -right-32 w-[300px] h-[300px] bg-purple-600/10 blur-3xl rounded-full pointer-events-none" />
         </div>
       </div>
