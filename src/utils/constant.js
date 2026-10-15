@@ -6,3 +6,6 @@ export const BACK_IMG ="https://assets.nflxext.com/ffe/siteui/vlv3/ab1fe332-993a
 export const USER_AVTAR = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd1Th5gae2Q5TMYAq3IehJ43kLHoGBI_7f3DcM5D5bBg&s=10"
 
 export const BACK_HOME = "https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY.jpg";
+
+export const VIDEO_URL ="https://www.youtube.com/embed/PssKpzB0Ah0?autoplay=1&mute=1&loop=1&playlist=PssKpzB0Ah0"
+

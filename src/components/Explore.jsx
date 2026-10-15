@@ -8,6 +8,8 @@ import {
   ChevronDown,
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
+import { VIDEO_URL } from '../utils/constant';
 
 const Top5Movie = [
    {id: 40, title: 'Mahavtar Narsimha', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPjwUHokS9vZzinFHMZiQiVTEtw-AgmO-pxA&s' },
@@ -159,14 +161,6 @@ const HorizontalRow = ({ title, data, showRank = false }) => {
   );
 };
 
-/* ================= FOOTER ================= */
-const Footer = () => {
-  return (
-    <footer className="bg-black text-gray-400 py-6 border-t border-gray-800 text-center text-sm">
-      © {new Date().getFullYear()} Streamify. All rights reserved.
-    </footer>
-  );
-};
 
 
 /* ================= MAIN EXPLORE ================= */
@@ -195,29 +189,47 @@ useEffect(() => {
       
 
       {/* HERO SECTION */}
-      <section className="relative h-[85vh] w-full flex items-center">
-        <div 
-          className="absolute inset-0 bg-cover bg-center" 
-          style={{ backgroundImage: "url('https://occ-0-8407-2219.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABcIFFHqGrDletH1OSvfXQGpiRFbGRJKYKoYOu_EczGNAgalhWFdfvwg3pF86qtuHZu6x_o3S6-t1_WIJ6_Q-FtfCyPCi6qMzXVJ2.jpg?r=00f')" }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-        </div>
-        
-        <div className="relative z-10 px-10 md:px-20 max-w-2xl space-y-6">
-          <h1 className="text-6xl md:text-8xl font-black italic drop-shadow-2xl">STRANGER THINGS</h1>
-          <p className="text-lg md:text-xl text-gray-200 leading-relaxed drop-shadow-md">
-            When a young boy vanishes, a small town uncovers a mystery involving secret experiments and terrifying supernatural forces.
-          </p>
-          <div className="flex gap-4">
-            <button className="px-10 py-3 bg-white text-black font-black rounded hover:bg-gray-200 transition text-lg flex items-center gap-2 shadow-xl">
-              <Play size={20} fill="black" /> Play
-            </button>
-            <button className="px-10 py-3 bg-gray-500/50 text-white font-bold rounded hover:bg-gray-500/30 transition text-lg backdrop-blur-md flex items-center gap-2 shadow-xl">
-              <Info size={20} /> More Info
-            </button>
-          </div>
-        </div>
-      </section>
+<section className="relative w-full h-screen min-h-[600px] flex items-center overflow-hidden">
+
+  {/* Full Screen Video */}
+  <div className="absolute inset-0 w-full h-full">
+    <iframe
+      className="absolute inset-0 w-full h-full border-0 scale-125"
+      src={VIDEO_URL}
+      title="Stranger Things Trailer"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowFullScreen
+    />
+
+    {/* Dark Gradient Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20" />
+  </div>
+
+  {/* Content */}
+  <div className="relative z-10 px-6 md:px-20 max-w-2xl space-y-6">
+    <h1 className="text-5xl md:text-8xl font-black italic text-red-800">
+      STRANGER
+      <br />
+      THINGS
+    </h1>
+
+    <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
+      When a young boy vanishes, a small town uncovers a mystery involving
+      secret experiments and terrifying supernatural forces.
+    </p>
+
+    <div className="flex gap-4">
+      <button className="px-10 py-3 bg-white text-black font-bold rounded hover:bg-gray-200">
+        ▶ Play
+      </button>
+
+      <button className="px-10 py-3 bg-gray-500/70 text-white font-bold rounded">
+        ⓘ More Info
+      </button>
+    </div>
+  </div>
+</section>
 
       {/* MOVIE ROWS SECTION */}
       <section className="bg-black pt-16 pb-20 space-y-16 relative z-20">
@@ -231,8 +243,12 @@ useEffect(() => {
         <HorizontalRow title="Kids & Family" data={KidsEnjoys} />
       </section>
 
-      <Footer />
-    </div>
+
+
+<div>
+  <Footer />
+</div>
+      </div>
   );
 };
 
