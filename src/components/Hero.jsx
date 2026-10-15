@@ -7,8 +7,23 @@ import FAQ from "./FAQ";
 import Footer from "./Footer";
 import Header from "./Header";
 import { BACK_HOME } from "../utils/constant";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+
+    const user = useSelector((store) => store.user);
+  const navigate = useNavigate();
+
+  const handleStartWatching = () =>{
+       if (user) {
+      navigate("/browse");
+    } else {
+      navigate("/login");
+    }
+  };
+
+
   return (
     <div>
       <div>
@@ -46,12 +61,13 @@ const Hero = () => {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/login"
-                className="inline-flex items-center justify-center gap-3 bg-red-600 hover:bg-red-700 px-8 py-4 rounded-lg text-lg font-semibold transition"
-              >
+         
+         <button 
+          onClick={handleStartWatching}
+         className="inline-flex items-center justify-center gap-3 bg-red-600 hover:bg-red-700 px-8 py-4 rounded-lg text-lg font-semibold transition">
                 <Play size={20} /> Start Watching
-              </Link>
+         </button>
+             
             </div>
           </div>
         </div>
@@ -65,6 +81,6 @@ const Hero = () => {
       </div>
     </div>
   );
-};
 
+};
 export default Hero;

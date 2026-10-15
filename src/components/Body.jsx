@@ -1,49 +1,50 @@
-import Login from './Login';
-import Browse from './Browse';
-import {createBrowserRouter,RouterProvider} from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import Explore from './Explore';
-import Hero from './Hero';
-
+import Login from "./Login";
+import Browse from "./Browse";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import Hero from "./Hero";
+import { useMemo } from "react";
+import Explore from "./Explore";
 
 const Body = () => {
   const dispatch = useDispatch();
-  const appRouter = createBrowserRouter([
+  const appRouter = useMemo (()=>
+  
+      createBrowserRouter([
     {
       path: "/",
-      element : <Hero/>,
+      element: <Hero />,
+    },
+
+    {
+      path: "/login",
+      element: <Login />,
     },
 
     {
       path: "/browse",
-      element: <Browse/>
+      element: <Browse />,
+    },
+
+    {
+      path: "/explore",
+      element: <Explore />
 
     },
 
     {
-      path : "/error",
-      element: <Error />
+      path: "/error",
+      element: <Error />,
     },
-
-    {
-      path : "/explore",
-      element : <Explore />
-    },
-
-    {
-      path: "login",
-      element: <Login />
-    }
-
-
-  ]);
-
+  ]), []);
+  
+  
 
   return (
     <div>
- <RouterProvider router={appRouter} />
+      <RouterProvider router={appRouter} />
     </div>
-  )
-}
+  );
+};
 
-export default Body
+export default Body;

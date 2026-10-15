@@ -1,13 +1,13 @@
-import Header from "./Header"
-import Hero from "./Hero"
+import Explore from "./Explore";
+import Header from "./Header";
 
 const Browse = () => {
   return (
     <div>
       <Header />
-      <Hero />
+      <Explore />
     </div>
   )
 }
 
-export default Browse
+export default Browse;
