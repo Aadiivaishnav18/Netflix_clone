@@ -7,5 +7,7 @@ export const USER_AVTAR = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9G
 
 export const BACK_HOME = "https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY.jpg";
 
-export const VIDEO_URL ="https://www.youtube.com/embed/PssKpzB0Ah0?autoplay=1&mute=1&loop=1&playlist=PssKpzB0Ah0"
+export const VIDEO_URL ="https://www.youtube.com/embed/PssKpzB0Ah0?autoplay=1&mute=1&loop=1&playlist=PssKpzB0Ah0";
+
+export const FEATURE_VIDEO = "https://www.youtube.com/embed/uBotyv_TSZg";
 

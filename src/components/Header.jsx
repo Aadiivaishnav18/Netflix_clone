@@ -92,26 +92,27 @@ const Header = () => {
 
           {/* Desktop Navigation: Only when logged in */}
           {user && (
-            <nav className="hidden items-center gap-5 text-sm text-gray-300 md:flex">
+            <nav className="hidden items-center gap-5 text-sm text-gray-300 md:flex cursor-pointer">
               <button
                 onClick={() => navigate("/")}
-                className="font-semibold text-white transition hover:text-gray-300"
+              className="transition hover:text-white cursor-pointer "
               >
                 Home
               </button>
 
               <button
-                onClick={() => navigate("/explore")}
-                className="font-semibold text-white transition hover:text-gray-300"
+                onClick={() => navigate("/browse")}
+               className="transition hover:text-white cursor-pointer"
               >
                 Explore
               </button>
 
-              <button className="transition hover:text-white">
+              <button
+               className="transition hover:text-white cursor-pointer">
                 TV Shows
               </button>
 
-              <button className="transition hover:text-white">
+              <button className="transition hover:text-white cursor-pointer">
                 Movies
               </button>
             </nav>

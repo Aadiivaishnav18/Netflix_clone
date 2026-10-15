@@ -27,7 +27,7 @@ const Body = () => {
     },
 
     {
-      path: "/explore",
+      path: "/browse",
       element: <Explore />
 
     },
